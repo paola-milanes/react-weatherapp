@@ -1,3 +1,38 @@
 .Weather{
-    border: 1px solid grey;
+border: 1px solid rgb(255, 253, 253);
+  background-image: url(.//img/mountain.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  max-width: 500px;
+  min-height: 800px;
+  margin: auto;
+  border-radius: 10px;
 }
+.Weatherlayer{
+    background-color: rgba(249, 249, 249, 0.097);
+     min-height: 800px;
+}
+.form-control{
+    background-color: rgba(255, 250, 240, 0);
+    border-style: none none solid none;
+    margin: 5px 5px 5px 51px;
+    max-width: 80%;
+    border-radius: 0%;
+    
+}
+ul{
+     list-style-type: none;
+}
+ .btn-primary{
+    background-color: rgba(240, 248, 255, 0);
+    border-color: aliceblue;
+    border-style: none none solid none;
+    border-radius: 0%;
+    margin-right:100% ;
+    margin-top: 5px;
+ }
+.cityName{
+    /* margin-top: 40px; */
+    color: white;
+    font-weight: 100;
+ }
