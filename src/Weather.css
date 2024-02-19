@@ -1,5 +1,14 @@
+.App{
+   /* background-image: url(.//img/dark.jpeg);
+ background-repeat: no-repeat;
+  background-size: cover;  */
+  background: linear-gradient(#e6450015,#2c007410);
+  padding-bottom: 8%;
+  overflow: hidden;
+}
 .Weather{
-border: 1px solid rgb(255, 253, 253);
+    margin-top: 50px;
+border: 2px solid #910f7b;
   background-image: url(.//img/mountain.jpeg);
   background-repeat: no-repeat;
   background-size: cover; 
@@ -33,6 +42,40 @@ ul{
  }
 .cityName{
     /* margin-top: 40px; */
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    margin-left: 20%;
+    /* max-width: 50%; */
+ }
+ .clearfix{
+    margin: auto;
+    background-color: #910f7b31;
+    border-radius: 100%;
+    max-width: 50%;
+    /* margin-top: ; */
+    
+    /* padding-left: ; */
+ }
+ .temperature{
+    font-weight: 100;
+    font-size: 90px;
+    margin-left: 50px;
+    color: white;
+    /* margin-top: 10000px; */
+ }
+ .tempinfo{
     color: white;
     font-weight: 100;
+ }
+ .hours{
+    color: floralwhite;
+    font-size: 30px;
+    font-weight: 100;
+    /* margin-right: 20%; */
+ }
+ .time{
+    color: floralwhite;
+   /* margin-left: 0%; */
+   font-size: small;
+    
  }

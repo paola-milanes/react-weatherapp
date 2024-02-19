@@ -1,29 +1,37 @@
 import React from "react";
 import { FormatedDate } from "./FormatedDate";
 import WeatherTemperature from "./WeatherTemp";
+import Time  from "./Time";
 export default function WeatherInfo(props) {
+    console.log(props)
   return (
     <div className="WeatherInfo">
-      <h1 className="cityName"> {props.data.city}</h1>
-      <ul>
-        <li>
-          <FormatedDate date={props.data.date}></FormatedDate>
-        </li>
-        <li className="text-capitalize">{props.data.descript}</li>
-      </ul>
+      <div className="row">
+        <div className="col-8">
+          <h1 className="cityName"> {props.data.city}</h1>
+        </div>
+        <div className="col-4">
+          <ul>
+            <li>{/* <Time time={props.data.date}></Time> */}</li>
+            <li>
+              <FormatedDate date={props.data.date}></FormatedDate>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="row mt-3">
-        <div className="col-6">
+        <div className="col-12">
           <div className="clearfix">
-            <img src={props.data.iconUrl} className="float-left" />
-
-            <div className="float-left">
+            <div className="float-left currentTemp">
               <WeatherTemperature fahrenheit={props.data.temp} />
             </div>
+            <img src={props.data.iconUrl} className="float-left " />
           </div>
-          <div className="col-6">
+          <div className="col-12">
             <ul>
-              <li>humidity: {props.data.humidity}%</li>
-              <li>Wind: {props.data.wind}%</li>
+              <li className="tempinfo">humidity: {props.data.humidity}%</li>
+              <li className="tempinfo">Wind: {props.data.wind}%</li>
+              <li className="tempinfo">{props.data.descript}</li>
             </ul>
           </div>
         </div>
