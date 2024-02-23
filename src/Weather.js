@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import WeatherInfo from "./weatherinfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
-
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
-  const [weatherData, setWeatherData] = useState({ready:false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [forecastData, setForecastData] = useState({ ready: false });
 
   function handleResponse(response) {
     let res = response.data;
@@ -20,21 +21,80 @@ export default function Weather(props) {
       wind: res.wind.speed,
       city: res.name,
     });
-    
   }
-  function search(){
-     const apiKey = "68dec89f5577f56bb12d71530e92be60";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
-    
+// function handelForecast(response) {
+//     setForecastData(response.data.daily);
+//     console.log(response.data.daily[0].conditionicon_url);
+// }
+/////////////////////////////////////////////////////
+  function handelForecast(response) {
+    let res = response.data.daily;
+    console.log(res);
+    setForecastData(
+      { ready: true,
+        data : res }
+
+      //   ready: true,
+      //   iconUrl: res.condition.icon_url,
+      //   descript: res.condition.description,
+      //   temp: res.temperature,
+      //   max: res.temperature.maximum,
+      //   min: res.temperature.minimum,
+    );
   }
-  function handlesubmit(event){
+/////////////////////////////////////////////
+//   function handelForecast(response) {
+//     let res = response.data.daily;
+//     Object.keys(res).forEach(function(key, index){
+//         console.log(index,res[key])
+//         setForecastData((prev)=>{
+//             return [
+//               ...prev,
+//                res[key]
+//             ];
+//         }) 
+//     })
+    // console.log(res);
+    // setForecastData({
+    //   iconUrl: res.condition.icon_url,
+    //   descript: res.condition.description,
+    //   temp: res.temperature,
+    //   max: res.temperature.maximum,
+    //   min: res.temperature.minimum,
+    // });
+    // console.log(forecastData);
+//   }
+
+  //   function handleForecast(Response){
+  //     console.log("hello")
+  //     setForecastData({
+  //         lat: Response.data.city.lat,
+  //         lon: Response.data.city.lon,
+  //         count: 7
+
+  //     })
+
+  // }
+  function search() {
+      const apiKey = "68dec89f5577f56bb12d71530e92be60";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+      axios.get(apiUrl).then(handleResponse);
+
+    const key = "9afc5146bea2t731f3ee989f0a290f4o";
+    let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=imperial`;
+    axios.get(forecastUrl).then(handelForecast);
+
+    console.log(city)
+    // console.log(forecastUrl);
+
+  }
+  function handlesubmit(event) {
     event.preventDefault();
-    search(city);
+    search();
     //search for city
   }
-  function handlecitychange(event){
-    setCity(event.target.value)
+  function handlecitychange(event) {
+    setCity(event.target.value);
   }
   if (weatherData.ready) {
     return (
@@ -60,12 +120,14 @@ export default function Weather(props) {
               </div>
             </div>
           </form>
+
           <WeatherInfo data={weatherData} />
+          <WeatherForecast forecastData={forecastData} />
         </div>
       </div>
     );
   } else {
-    search()
+    search();
     return "Loading...";
   }
 }

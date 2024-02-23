@@ -1,0 +1,19 @@
+.WeatherForecast{
+    text-align: center;
+    
+}
+.Weather-temp-min{
+    opacity: 0.6;
+    margin-left: 5px;
+}
+.forecastContainer{
+    display: flex;
+
+}
+.WeatherForecast{
+     background-color: #910f7b31;
+    border-radius: 10%;
+    margin-right: 10px;
+    margin-left: 10px
+
+}

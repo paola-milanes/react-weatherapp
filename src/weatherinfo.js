@@ -1,9 +1,10 @@
 import React from "react";
 import { FormatedDate } from "./FormatedDate";
 import WeatherTemperature from "./WeatherTemp";
-import Time  from "./Time";
+
+// import Time  from "./Time";
 export default function WeatherInfo(props) {
-    console.log(props)
+    // console.log(props)
   return (
     <div className="WeatherInfo">
       <div className="row">
@@ -25,7 +26,7 @@ export default function WeatherInfo(props) {
             <div className="float-left currentTemp">
               <WeatherTemperature fahrenheit={props.data.temp} />
             </div>
-            <img src={props.data.iconUrl} className="float-left " />
+            <img src={props.data.iconUrl} className="float-left " alt="icon" />
           </div>
           <div className="col-12">
             <ul>
