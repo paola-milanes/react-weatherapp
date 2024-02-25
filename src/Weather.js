@@ -10,6 +10,7 @@ export default function Weather(props) {
   const [forecastData, setForecastData] = useState({ ready: false });
 
   function handleResponse(response) {
+    console.log(response)
     let res = response.data;
     setWeatherData({
       ready: true,
@@ -22,59 +23,18 @@ export default function Weather(props) {
       city: res.name,
     });
   }
-// function handelForecast(response) {
-//     setForecastData(response.data.daily);
-//     console.log(response.data.daily[0].conditionicon_url);
-// }
+
 /////////////////////////////////////////////////////
   function handelForecast(response) {
     let res = response.data.daily;
-    console.log(res);
+    // console.log(res);
     setForecastData(
       { ready: true,
         data : res }
-
-      //   ready: true,
-      //   iconUrl: res.condition.icon_url,
-      //   descript: res.condition.description,
-      //   temp: res.temperature,
-      //   max: res.temperature.maximum,
-      //   min: res.temperature.minimum,
     );
   }
-/////////////////////////////////////////////
-//   function handelForecast(response) {
-//     let res = response.data.daily;
-//     Object.keys(res).forEach(function(key, index){
-//         console.log(index,res[key])
-//         setForecastData((prev)=>{
-//             return [
-//               ...prev,
-//                res[key]
-//             ];
-//         }) 
-//     })
-    // console.log(res);
-    // setForecastData({
-    //   iconUrl: res.condition.icon_url,
-    //   descript: res.condition.description,
-    //   temp: res.temperature,
-    //   max: res.temperature.maximum,
-    //   min: res.temperature.minimum,
-    // });
-    // console.log(forecastData);
-//   }
 
-  //   function handleForecast(Response){
-  //     console.log("hello")
-  //     setForecastData({
-  //         lat: Response.data.city.lat,
-  //         lon: Response.data.city.lon,
-  //         count: 7
 
-  //     })
-
-  // }
   function search() {
       const apiKey = "68dec89f5577f56bb12d71530e92be60";
       let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -83,6 +43,7 @@ export default function Weather(props) {
     const key = "9afc5146bea2t731f3ee989f0a290f4o";
     let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=imperial`;
     axios.get(forecastUrl).then(handelForecast);
+
 
     console.log(city)
     // console.log(forecastUrl);

@@ -17,6 +17,19 @@ border: 2px solid #910f7b;
   margin: auto;
   border-radius: 10px;
 }
+.WeatherTemperature{
+    color: aliceblue;
+    
+}
+::placeholder {
+  color: red;
+  opacity: 1;
+}
+a{
+    text-decoration: none;
+    color: #910f7b;
+}
+
 .Weatherlayer{
     background-color: rgba(249, 249, 249, 0.097);
      min-height: 800px;
@@ -61,6 +74,7 @@ ul{
     font-size: 90px;
     margin-left: 50px;
     color: white;
+    margin-top: 50px;
     /* margin-top: 10000px; */
  }
  .tempinfo{

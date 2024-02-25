@@ -3,8 +3,15 @@
     
 }
 .Weather-temp-min{
-    opacity: 0.6;
+    opacity: 0.4;
     margin-left: 5px;
+    color: white;
+}
+.WeatherForecast-day{
+    color: white;
+}
+.Weather-temp-max{
+     color: white;
 }
 .forecastContainer{
     display: flex;
@@ -14,6 +21,12 @@
      background-color: #910f7b31;
     border-radius: 10%;
     margin-right: 10px;
-    margin-left: 10px
+    margin-left: 10px;
+      flex-wrap: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  /* margin-bottom: 30px; */
+  padding-top: 30px;
+  padding-bottom: 30px;
 
 }
