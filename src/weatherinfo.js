@@ -26,13 +26,25 @@ export default function WeatherInfo(props) {
             <div className="float-left currentTemp">
               <WeatherTemperature fahrenheit={props.data.temp} />
             </div>
-            <img src={props.data.iconUrl}className="float-left icon " alt="icon" />
+            <li className="tempinfoinside">
+              {props.data.descript}
+              <img
+                src={props.data.iconUrl}
+                id="smallIcon"
+                className="float-left "
+                alt="icon"
+              />
+            </li>
+            {/* <img
+              src={props.data.iconUrl}
+              className="float-left icon "
+              alt="icon"
+            /> */}
           </div>
           <div className="col-12">
             <ul>
               <li className="tempinfo">humidity: {props.data.humidity}%</li>
               <li className="tempinfo">Wind: {props.data.wind}%</li>
-              <li className="tempinfo">{props.data.descript}</li>
             </ul>
           </div>
         </div>
